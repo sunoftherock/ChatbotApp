@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hackathon_project/home_screen.dart';
+import 'package:hackathon_project/form_screen.dart';
 
 class LoginDemo extends StatefulWidget {
   @override
@@ -86,7 +87,7 @@ class _LoginDemoState extends State<LoginDemo> {
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (_) => HomePage()),
+                    MaterialPageRoute(builder: (_) => FormPage()),
                   );
                 },
                 child: Text('New User? Create Account'),
