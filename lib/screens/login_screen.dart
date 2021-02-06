@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:hackathon_project/home_screen.dart';
-import 'package:hackathon_project/form_screen.dart';
+import 'package:hackathon_project/screens/home_screen.dart';
+import 'package:hackathon_project/screens/form_screen.dart';
 
 class LoginDemo extends StatefulWidget {
   @override
