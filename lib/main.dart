@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hackathon_project/items.dart';
+import 'login_screen.dart';
 
 void main() => runApp(MyApp());
 
@@ -58,14 +59,6 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                             height: 1.3),
                         textAlign: TextAlign.center,
                       ),
-                      ElevatedButton(
-                          onPressed: () {},
-                          child: const Text(
-                            'Tell Us About yourself',
-                            style: TextStyle(
-                              fontSize: 20,
-                            ),
-                          ))
                     ],
                   ),
                 ),
@@ -108,18 +101,40 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
               },
             ),
             Align(
-                alignment: Alignment.bottomCenter,
-                child: Container(
-                  margin: EdgeInsets.only(top: 70.0),
-                  padding: EdgeInsets.symmetric(vertical: 40.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: indicator(),
-                  ),
-                )
+              alignment: Alignment.bottomCenter,
+              child: Container(
+                margin: EdgeInsets.only(top: 500.0),
+                padding: EdgeInsets.symmetric(vertical: 40.0),
+                child: Column(
+                  children: <Widget>[
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: indicator(),
+                    ),
+                    Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+                      SizedBox(
+                        height: 90,
+                      ),
+                      ElevatedButton(
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => LoginDemo()),
+                            );
+                          },
+                          child: const Text(
+                            'Tell Us About yourself',
+                            style: TextStyle(
+                              fontSize: 20,
+                            ),
+                          )),
+                    ]),
+                  ],
+                ),
                 //  ),
-                )
-            // )
+              ),
+            )
           ],
         ),
       ),
