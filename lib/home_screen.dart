@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'matches.dart';
-import 'dart:developer';
 
 class HomePage extends StatefulWidget {
   @override
@@ -20,8 +19,9 @@ class _HomePageState extends State<HomePage> {
               height: 32,
             ),
             Container(
-                padding: const EdgeInsets.only(left: 10),
-                child: Text('Matches'))
+              padding: const EdgeInsets.only(left: 10),
+              child: Text('Matches'),
+            ),
           ],
         ),
       ),
@@ -30,10 +30,10 @@ class _HomePageState extends State<HomePage> {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: <Widget>[
-              const ListTile(
+              ListTile(
                 leading: Icon(Icons.account_box_rounded),
-                title: Text('hi'),
-                subtitle: Text('Last online 34 minutes ago'),
+                title: Text(getMatches[0]['name']),
+                subtitle: Text(getMatches[0]['status']),
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,
