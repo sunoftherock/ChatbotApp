@@ -57,7 +57,15 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                             fontSize: 16.0,
                             height: 1.3),
                         textAlign: TextAlign.center,
-                      )
+                      ),
+                      ElevatedButton(
+                          onPressed: () {},
+                          child: const Text(
+                            'Tell Us About yourself',
+                            style: TextStyle(
+                              fontSize: 20,
+                            ),
+                          ))
                     ],
                   ),
                 ),
