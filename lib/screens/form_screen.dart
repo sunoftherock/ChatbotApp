@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hackathon_project/datafiles/colors.dart';
 import 'match_screen.dart';
 
 class FormPage extends StatefulWidget {
@@ -81,11 +82,13 @@ class FormPageState extends State<FormPage> {
 
     for (int i = 0; i < options.length; i++) {
       FilterChip filterChip = FilterChip(
+        padding: const EdgeInsets.all(5.0),
         selected: selected[i],
-        label: Text(options[i], style: TextStyle(color: Colors.white)),
-        avatar: FlutterLogo(),
-        elevation: 10,
-        pressElevation: 5,
+        label: Text(options[i],
+            style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white)),
+        // avatar: FlutterLogo(),
+        elevation: 3,
+        pressElevation: 1,
         shadowColor: Colors.teal,
         backgroundColor: Colors.black54,
         selectedColor: Colors.blue,
@@ -96,11 +99,12 @@ class FormPageState extends State<FormPage> {
         },
       );
 
-      chips.add(filterChip);
+      chips.add(Padding(padding: const EdgeInsets.all(5), child: filterChip));
     }
 
     return Wrap(
       // This next line does the trick.
+      // runSpacing: 1.0,
       children: chips,
     );
   }
@@ -125,6 +129,7 @@ class FormPageState extends State<FormPage> {
 
     return new Scaffold(
       appBar: new AppBar(
+        backgroundColor: AppColors.lightBrown,
         title: new Text('Personal Information'),
       ),
       body: new Container(
@@ -181,23 +186,31 @@ class FormPageState extends State<FormPage> {
                   value: userData.sexuality != '' ? userData.sexuality : null,
                   hint: Text("Please choose you sexuality"),
                 ),
+                Text("Background Traits",
+                    style:
+                        TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
                 chips(),
                 new Container(
                   width: screenSize.width,
-                  child: new RaisedButton(
-                    child: new Text(
-                      'Sign Up',
-                      style: new TextStyle(color: Colors.white),
+                  child: Container(
+                    height: 50,
+                    width: 250,
+                    decoration: BoxDecoration(
+                        color: AppColors.lightBrown,
+                        borderRadius: BorderRadius.circular(20)),
+                    child: FlatButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (_) => MatchPage()),
+                        );
+                      },
+                      child: Text(
+                        'Sign Up',
+                        style: TextStyle(color: Colors.white, fontSize: 25),
+                      ),
                     ),
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (_) => MatchPage()),
-                      );
-                    },
-                    color: Colors.blue,
                   ),
-                  margin: new EdgeInsets.only(top: 20.0),
                 )
               ],
             ),

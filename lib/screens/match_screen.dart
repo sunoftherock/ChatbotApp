@@ -49,7 +49,7 @@ class MatchPageState extends State<MatchPage> {
                           matches[index]['image'],
                           fit: BoxFit.fitWidth,
                           width: 64,
-                          alignment: Alignment.bottomCenter,
+                          alignment: Alignment.center,
                         ),
                         title: Text(
                             '${matches[index]['name']} - ${matches[index]['status']} '),
