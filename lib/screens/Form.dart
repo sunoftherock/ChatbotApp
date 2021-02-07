@@ -1,28 +1,24 @@
 import 'package:flutter/material.dart';
-import 'package:validate/validate.dart';
-import 'package:location/location.dart';
 
-void main() => runApp(new MaterialApp(
-  title: 'Forms in Flutter',
-  home: new LoginPage(),
-));
 
 class LoginPage extends StatefulWidget {
   @override
-  State<StatefulWidget> createState() => new _LoginPageState();
+  State<StatefulWidget> createState() => LoginPageState();
 }
 
-class _LoginData {
+class LoginData {
   String school = '';
-  String first_name = '';
-  String last_name = '';
-  var _gender = ["Male", "Female", "Other", "Do not Self-Identify"];
-  var _currentItemSelected = _gender[0];
+  String firstName = '';
+  String lastName = '';
+  String gender = '';
+  List<String> backgrounds = new List<String>();
 }
 
-class _PageState extends State<LoginPage> {
+  var genders = ["Male", "Female", "Other", "Do not Self-Identify"];
+  // var currentItemSelected = "Male";
+class LoginPageState extends State<LoginPage> {
   final GlobalKey<FormState> _formKey = new GlobalKey<FormState>();
-  _LoginData _data = new _LoginData();
+  LoginData userData = new LoginData();
 
 
   void submit() {
@@ -30,8 +26,8 @@ class _PageState extends State<LoginPage> {
     if (this._formKey.currentState.validate()) {
       _formKey.currentState.save(); // Save our form now.
 
-      print('First Name: ${_data.first_name}');
-      print('Last Name: ${_data.last_name}');
+      print('First Name: ${userData.firstName}');
+      print('Last Name: ${userData.lastName}');
 
     }
   }
@@ -57,7 +53,7 @@ class _PageState extends State<LoginPage> {
                   labelText: 'First Name'
                 ),
                 onSaved: (String value) {
-                  this._data.first_name = value;
+                  this.userData.firstName = value;
                 }
               ),
               new TextFormField(
@@ -67,22 +63,21 @@ class _PageState extends State<LoginPage> {
                   labelText: 'Last Name'
                 ),
                 onSaved: (String value) {
-                  this._data.last_name = value;
+                  this.userData.lastName = value;
                 }
               ),
               DropdownButton<String>(
-                items: _gender.map((String dropDownStringItem){
-                  return dropDownStringItem<String>(
+                items: genders.map((String dropDownStringItem){
+                  return DropDownStringItem<String>(
                     value: dropDownStringItem,
                     child: Text(dropDownStringItem)
                   );
                 }).toList(),
-                onChanged:(value){
-                  setState({
-                    this._currentItemSelected = value;
-                  });
+                onChanged:((value) =>
+                    userData.gender = value);
+                  );
                 }
-                value: _currentItemSelected;
+                value: currentItemSelected;
               ),
               new Container(
                 width: screenSize.width,
