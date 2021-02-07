@@ -1,36 +1,32 @@
 import 'package:flutter/material.dart';
-import 'match_screen.dart';
-
-void main() => runApp(new MaterialApp(
-      title: 'Forms in Flutter',
-      home: new FormPage(),
-    ));
 
 class FormPage extends StatefulWidget {
   @override
-  State<StatefulWidget> createState() => new _FormPageState();
+  State<StatefulWidget> createState() => FormPageState();
 }
 
-class _FormData {
-  String location = '';
+class LoginData {
+  String school = '';
   String firstName = '';
   String lastName = '';
   String gender = '';
-  String sexualOrientation = '';
-  List<String> background = new List<String>();
+  List<String> backgrounds = new List<String>();
 }
 
-class _FormPageState extends State<FormPage> {
+var genders = ["Male", "Female", "Other", "Do not Self-Identify"];
+
+// var currentItemSelected = "Male";
+class FormPageState extends State<FormPage> {
   final GlobalKey<FormState> _formKey = new GlobalKey<FormState>();
-  _FormData _data = new _FormData();
+  LoginData userData = new LoginData();
 
   void submit() {
     // First validate form.
     if (this._formKey.currentState.validate()) {
       _formKey.currentState.save(); // Save our form now.
 
-      print('First Name: ${_data.firstName}');
-      print('Last Name: ${_data.lastName}');
+      print('First Name: ${userData.firstName}');
+      print('Last Name: ${userData.lastName}');
     }
   }
 
@@ -54,31 +50,25 @@ class _FormPageState extends State<FormPage> {
                     decoration: new InputDecoration(
                         hintText: 'First Name', labelText: 'First Name'),
                     onSaved: (String value) {
-                      this._data.firstName = value;
+                      this.userData.firstName = value;
                     }),
                 new TextFormField(
                     obscureText: false, // Use secure text for passwords.
                     decoration: new InputDecoration(
                         hintText: 'Last Name', labelText: 'Last Name'),
                     onSaved: (String value) {
-                      this._data.lastName = value;
+                      this.userData.lastName = value;
                     }),
-                new TextFormField(
-                    obscureText: false, // Use secure text for passwords.
-                    keyboardType: TextInputType.text,
-                    decoration: new InputDecoration(
-                        hintText: 'Gender', labelText: 'Gender'),
-                    onSaved: (String value) {
-                      this._data.gender = value;
-                    }),
-                new TextFormField(
-                    obscureText: false, // Use secure text for passwords.
-                    keyboardType: TextInputType.text,
-                    decoration: new InputDecoration(
-                        hintText: 'location', labelText: 'location'),
-                    onSaved: (String value) {
-                      this._data.location = value;
-                    }),
+                DropdownButton<String>(
+                  items: genders.map((String dropDownStringItem) {
+                    return new DropdownMenuItem<String>(
+                        value: dropDownStringItem,
+                        child: Text(dropDownStringItem));
+                  }).toList(),
+                  onChanged: ((value) => userData.gender = value),
+                  value: userData.gender != '' ? userData.gender : null,
+                  hint: Text("Please choose you gender"),
+                ),
                 new Container(
                   width: screenSize.width,
                   child: new RaisedButton(
@@ -86,12 +76,7 @@ class _FormPageState extends State<FormPage> {
                       'Information',
                       style: new TextStyle(color: Colors.white),
                     ),
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => MatchPage()),
-                      );
-                    },
+                    onPressed: this.submit,
                     color: Colors.blue,
                   ),
                   margin: new EdgeInsets.only(top: 20.0),
