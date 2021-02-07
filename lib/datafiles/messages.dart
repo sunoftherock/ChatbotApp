@@ -57,7 +57,8 @@ List messages = [
   {
     "senderID": "Panth",
     "recieverID": "Allen",
-    "body": "Sure man, I'll stop by your house after I finish dinner, should be in 15 minutes",
+    "body":
+        "Sure man, I'll stop by your house after I finish dinner, should be in 15 minutes",
     "time": "2020-02-01-20:11"
   },
   {
@@ -87,13 +88,15 @@ List messages = [
   {
     "senderID": "Ruslan",
     "recieverID": "Allen",
-    "body": "Wanted to play some DnD with friends from back home but they we need 1 more player for a party.",
+    "body":
+        "Wanted to play some DnD with friends from back home but they we need 1 more player for a party.",
     "time": "2020-09-11-18:02"
   },
   {
     "senderID": "Allen",
     "recieverID": "Ruslan",
-    "body": "No way dude! I play DnD as well, add me on table top simulator. Username is JumpSquad77",
+    "body":
+        "No way dude! I play DnD as well, add me on table top simulator. Username is JumpSquad77",
     "time": "2020-09-11-18:03"
   },
   {
@@ -105,13 +108,15 @@ List messages = [
   {
     "senderID": "Allen",
     "recieverID": "Ruslan",
-    "body": "Sounds good! I might leave for 10 min to get dinner, is that cool?",
+    "body":
+        "Sounds good! I might leave for 10 min to get dinner, is that cool?",
     "time": "2020-09-11-18:04"
   },
   {
     "senderID": "Ruslan",
     "recieverID": "Allen",
-    "body": "Should be fine, lol. I'll send you the invite for our discord server",
+    "body":
+        "Should be fine, lol. I'll send you the invite for our discord server",
     "time": "2020-09-11-18:05"
   }
 ];

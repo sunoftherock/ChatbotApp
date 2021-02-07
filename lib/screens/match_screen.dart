@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../datafiles/matches.dart';
 import 'messenger_screen.dart';
+import 'package:hackathon_project/datafiles/colors.dart';
 
 class MatchPage extends StatefulWidget {
   @override
@@ -29,6 +30,7 @@ class MatchPageState extends State<MatchPage> {
             ),
           ],
         ),
+        backgroundColor: AppColors.lightBrown,
       ),
       body: Scaffold(
         body: Align(
@@ -49,7 +51,7 @@ class MatchPageState extends State<MatchPage> {
                           matches[index]['image'],
                           fit: BoxFit.fitWidth,
                           width: 64,
-                          alignment: Alignment.center,
+                          alignment: Alignment.bottomCenter,
                         ),
                         title: Text(
                             '${matches[index]['name']} - ${matches[index]['status']} '),
