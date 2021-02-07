@@ -38,6 +38,7 @@ class MatchPageState extends State<MatchPage> {
             child: ListView.builder(
               itemCount: matches.length,
               itemBuilder: (context, index) {
+                // var passedname = matches[index]['name'];
                 return Card(
                   elevation: 5,
                   child: Column(
@@ -53,7 +54,9 @@ class MatchPageState extends State<MatchPage> {
                           onPressed: () {
                             Navigator.push(
                               context,
-                              MaterialPageRoute(builder: (_) => MessagesPage()),
+                              MaterialPageRoute(
+                                  builder: (_) =>
+                                      MessagesPage(matches[index]['name'])),
                             );
                           },
                         ),

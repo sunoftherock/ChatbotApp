@@ -82,6 +82,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
 
   double currentPage = 0.0;
   final _pageViewController = new PageController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -115,20 +116,22 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                       SizedBox(
                         height: 90,
                       ),
-                      ElevatedButton(
-                          onPressed: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => LoginDemo()),
-                            );
-                          },
-                          child: const Text(
-                            'Tell Us About yourself',
-                            style: TextStyle(
-                              fontSize: 20,
-                            ),
-                          )),
+                      currentPage == 2.0
+                          ? ElevatedButton(
+                              onPressed: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => LoginDemo()),
+                                );
+                              },
+                              child: const Text(
+                                'Tell Us About yourself',
+                                style: TextStyle(
+                                  fontSize: 20,
+                                ),
+                              ))
+                          : Text(""),
                     ]),
                   ],
                 ),

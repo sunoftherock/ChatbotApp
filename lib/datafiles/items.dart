@@ -17,16 +17,4 @@ List items = [
         "Online chat which provides its users maximum functionality to simplify the search",
     "image": "lib/assets/images/1.png"
   },
-  {
-    "header": "Invest",
-    "description":
-        "Online chat which provides its users maximum functionality to simplify the search",
-    "image": "lib/assets/images/5.png"
-  },
-  {
-    "header": "Travel",
-    "description":
-        "Online chat which provides its users maximum functionality to simplify the search",
-    "image": "lib/assets/images/4.png"
-  }
 ];

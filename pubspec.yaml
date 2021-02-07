@@ -49,8 +49,8 @@ flutter:
     - lib/assets/images/1.png
     - lib/assets/images/2.png
     - lib/assets/images/3.png
-    - lib/assets/images/4.png
-    - lib/assets/images/5.png
+    # - lib/assets/images/4.png
+    # - lib/assets/images/5.png
     - lib/assets/images/flutter-logo.png
     - lib/assets/images/pearicon.png
   #   - images/a_dot_ham.jpeg
