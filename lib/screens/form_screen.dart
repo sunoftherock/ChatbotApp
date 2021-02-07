@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../Depreciated/matches_screen.dart';
+import 'match_screen.dart';
 
 void main() => runApp(new MaterialApp(
       title: 'Forms in Flutter',
@@ -89,7 +89,7 @@ class _FormPageState extends State<FormPage> {
                     onPressed: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => HomePage()),
+                        MaterialPageRoute(builder: (context) => MatchPage()),
                       );
                     },
                     color: Colors.blue,

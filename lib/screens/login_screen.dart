@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../Depreciated/matches_screen.dart';
+import 'match_screen.dart';
 import 'package:hackathon_project/screens/form_screen.dart';
 
 class LoginDemo extends StatefulWidget {
@@ -70,7 +70,7 @@ class _LoginDemoState extends State<LoginDemo> {
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (_) => HomePage()),
+                    MaterialPageRoute(builder: (_) => MatchPage()),
                   );
                 },
                 child: Text(
