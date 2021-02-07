@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'match_screen.dart';
 
 class FormPage extends StatefulWidget {
   @override
@@ -6,14 +7,26 @@ class FormPage extends StatefulWidget {
 }
 
 class LoginData {
-  String school = '';
+  String location = '';
   String firstName = '';
   String lastName = '';
   String gender = '';
+  String sexuality = '';
   List<String> backgrounds = new List<String>();
 }
 
-var genders = ["Male", "Female", "Other", "Do not Self-Identify"];
+var genders = ["Male", "Female", "Non-binary", "Other", "Don't wish to say"];
+var sexualities = [
+  "Straight",
+  "Gay",
+  "Bisexual",
+  "Pansexual",
+  "2 Spirit",
+  "Asexual",
+  "Aromantic",
+  "Other",
+  "Don't wish to say"
+];
 
 // var currentItemSelected = "Male";
 class FormPageState extends State<FormPage> {
@@ -28,6 +41,82 @@ class FormPageState extends State<FormPage> {
       print('First Name: ${userData.firstName}');
       print('Last Name: ${userData.lastName}');
     }
+  }
+
+  List<String> options = [
+    'Caucasian',
+    'African',
+    'Asian',
+    'Latinx',
+    'Christian',
+    'Jewish',
+    'Catholic',
+    'Muslim',
+    'Sikh',
+    'Hindu'
+  ];
+  List<bool> selected = [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+  ];
+
+  Widget buildChips() {
+    List<Widget> chips = new List();
+
+    for (int i = 0; i < options.length; i++) {
+      FilterChip filterChip = FilterChip(
+        selected: selected[i],
+        label: Text(options[i], style: TextStyle(color: Colors.white)),
+        avatar: FlutterLogo(),
+        elevation: 10,
+        pressElevation: 5,
+        shadowColor: Colors.teal,
+        backgroundColor: Colors.black54,
+        selectedColor: Colors.blue,
+        onSelected: (bool selected2) {
+          setState(() {
+            selected[i] = selected2;
+          });
+        },
+      );
+
+      chips.add(filterChip);
+    }
+
+    return Wrap(
+      // This next line does the trick.
+      children: chips,
+    );
+  }
+
+  chips() {
+    return Padding(
+      padding: const EdgeInsets.all(5.0),
+      child: Column(
+        children: <Widget>[
+          Container(
+            height: 200,
+            child: buildChips(),
+          ),
+        ],
+      ),
+    );
   }
 
   @override
@@ -59,24 +148,53 @@ class FormPageState extends State<FormPage> {
                     onSaved: (String value) {
                       this.userData.lastName = value;
                     }),
+                new TextFormField(
+                    obscureText: false, // Use secure text for passwords.
+                    decoration: new InputDecoration(
+                        hintText: 'Location', labelText: 'Location'),
+                    onSaved: (String value) {
+                      this.userData.location = value;
+                    }),
                 DropdownButton<String>(
                   items: genders.map((String dropDownStringItem) {
                     return new DropdownMenuItem<String>(
                         value: dropDownStringItem,
                         child: Text(dropDownStringItem));
                   }).toList(),
-                  onChanged: ((value) => userData.gender = value),
+                  onChanged: ((String value) {
+                    userData.gender = value;
+                    setState(() {});
+                  }),
                   value: userData.gender != '' ? userData.gender : null,
                   hint: Text("Please choose you gender"),
                 ),
+                DropdownButton<String>(
+                  items: sexualities.map((String dropDownStringItem) {
+                    return new DropdownMenuItem<String>(
+                        value: dropDownStringItem,
+                        child: Text(dropDownStringItem));
+                  }).toList(),
+                  onChanged: ((String value) {
+                    userData.sexuality = value;
+                    setState(() {});
+                  }),
+                  value: userData.sexuality != '' ? userData.sexuality : null,
+                  hint: Text("Please choose you sexuality"),
+                ),
+                chips(),
                 new Container(
                   width: screenSize.width,
                   child: new RaisedButton(
                     child: new Text(
-                      'Information',
+                      'Sign Up',
                       style: new TextStyle(color: Colors.white),
                     ),
-                    onPressed: this.submit,
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (_) => MatchPage()),
+                      );
+                    },
                     color: Colors.blue,
                   ),
                   margin: new EdgeInsets.only(top: 20.0),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hackathon_project/datafiles/items.dart';
 import 'screens/login_screen.dart';
+import 'package:hackathon_project/datafiles/colors.dart';
 
 void main() => runApp(MyApp());
 
@@ -117,20 +118,27 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                         height: 90,
                       ),
                       currentPage == 2.0
-                          ? ElevatedButton(
-                              onPressed: () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => LoginDemo()),
-                                );
-                              },
-                              child: const Text(
-                                'Tell Us About yourself',
-                                style: TextStyle(
-                                  fontSize: 20,
+                          ? Container(
+                              height: 50,
+                              width: 250,
+                              decoration: BoxDecoration(
+                                  color: AppColors.darkBrown,
+                                  borderRadius: BorderRadius.circular(20)),
+                              child: FlatButton(
+                                onPressed: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (_) => LoginDemo()),
+                                  );
+                                },
+                                child: Text(
+                                  'Login',
+                                  style: TextStyle(
+                                      color: Colors.white, fontSize: 25),
                                 ),
-                              ))
+                              ),
+                            )
                           : Text(""),
                     ]),
                   ],

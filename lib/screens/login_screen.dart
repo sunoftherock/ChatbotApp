@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'match_screen.dart';
 import 'package:hackathon_project/screens/form_screen.dart';
+import 'package:hackathon_project/datafiles/colors.dart';
 
 class LoginDemo extends StatefulWidget {
   @override
@@ -11,9 +12,10 @@ class _LoginDemoState extends State<LoginDemo> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: AppColors.paleGreen,
       appBar: AppBar(
         title: Text("Login Page"),
+        backgroundColor: AppColors.lightBrown,
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -22,12 +24,12 @@ class _LoginDemoState extends State<LoginDemo> {
               padding: const EdgeInsets.only(top: 60.0),
               child: Center(
                 child: Container(
-                    width: 200,
+                    width: 310,
                     height: 150,
                     /*decoration: BoxDecoration(
                         color: Colors.red,
                         borderRadius: BorderRadius.circular(50.0)),*/
-                    child: Image.asset('lib/assets/images/flutter-logo.png')),
+                    child: Image.asset('lib/assets/images/paerlogo.png')),
               ),
             ),
             Padding(
@@ -58,14 +60,15 @@ class _LoginDemoState extends State<LoginDemo> {
               },
               child: Text(
                 'Forgot Password',
-                style: TextStyle(color: Colors.blue, fontSize: 15),
+                style: TextStyle(color: AppColors.darkGreen, fontSize: 15),
               ),
             ),
             Container(
               height: 50,
               width: 250,
               decoration: BoxDecoration(
-                  color: Colors.blue, borderRadius: BorderRadius.circular(20)),
+                  color: AppColors.lightBrown,
+                  borderRadius: BorderRadius.circular(20)),
               child: FlatButton(
                 onPressed: () {
                   Navigator.push(
@@ -74,7 +77,7 @@ class _LoginDemoState extends State<LoginDemo> {
                   );
                 },
                 child: Text(
-                  'Login',
+                  'Sign Up',
                   style: TextStyle(color: Colors.white, fontSize: 25),
                 ),
               ),
@@ -90,7 +93,10 @@ class _LoginDemoState extends State<LoginDemo> {
                     MaterialPageRoute(builder: (_) => FormPage()),
                   );
                 },
-                child: Text('New User? Create Account'),
+                child: Text(
+                  'New User? Create Account',
+                  style: TextStyle(color: AppColors.darkGreen),
+                ),
               ),
             ),
           ],

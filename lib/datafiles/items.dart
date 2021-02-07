@@ -1,20 +1,20 @@
 List items = [
   {
-    "header": "Learn",
+    "header": "Paers",
     "description":
-        "Online chat which provides its users maximum functionality to simplify the search",
+        "Do you ever feel you are alone and nobody can understand your problems? Chat with other students who share YOUR lived experiences",
     "image": "lib/assets/images/2.png"
   },
   {
-    "header": "Build",
+    "header": "Connect",
     "description":
-        "Online chat which provides its users maximum functionality to simplify the search",
+        "Share your UNIQUE intersectional background to be matched with three (3) to five (5) peers that live near you or go to your school",
     "image": "lib/assets/images/3.png"
   },
   {
-    "header": "Launch",
+    "header": "Grow",
     "description":
-        "Online chat which provides its users maximum functionality to simplify the search",
+        "You can chat with your matched peers to ask questions in a safe space envirnoment; if you want to meet new people, you can unmatch",
     "image": "lib/assets/images/1.png"
   },
 ];

@@ -45,7 +45,12 @@ class MatchPageState extends State<MatchPage> {
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
                       ListTile(
-                        leading: Icon(Icons.album),
+                        leading: Image.asset(
+                          matches[index]['image'],
+                          fit: BoxFit.fitWidth,
+                          width: 64,
+                          alignment: Alignment.bottomCenter,
+                        ),
                         title: Text(
                             '${matches[index]['name']} - ${matches[index]['status']} '),
                         subtitle: Text('${matches[index]['lastMsg']}'),

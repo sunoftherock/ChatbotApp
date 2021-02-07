@@ -52,7 +52,12 @@ flutter:
     - lib/assets/images/3.png
     # - lib/assets/images/4.png
     # - lib/assets/images/5.png
-    - lib/assets/images/flutter-logo.png
+    - lib/assets/images/p1.png
+    - lib/assets/images/p2.png
+    - lib/assets/images/p3.png
+    - lib/assets/images/p4.png
+    - lib/assets/images/p5.png
+    - lib/assets/images/paerlogo.png
     - lib/assets/images/pearicon.png
   #   - images/a_dot_ham.jpeg
 
