@@ -1,20 +1,20 @@
 List items = [
   {
-    "header": "Learn",
+    "header": "Paers",
     "description":
-        "Online chat which provides its users maximum functionality to simplify the search",
+        "Online chat which connects users to people with shared lived experiences",
     "image": "lib/assets/images/2.png"
   },
   {
-    "header": "Build",
+    "header": "Connect",
     "description":
-        "Online chat which provides its users maximum functionality to simplify the search",
+        "Customize your profile include your gender, background, hobbies and more, the app will connect you with similar user",
     "image": "lib/assets/images/3.png"
   },
   {
-    "header": "Launch",
+    "header": "Share",
     "description":
-        "Online chat which provides its users maximum functionality to simplify the search",
+        "You can chat with your matched peers, and you can be friends with your matched peers",
     "image": "lib/assets/images/1.png"
   },
 ];

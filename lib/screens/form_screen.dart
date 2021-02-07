@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'match_screen.dart';
 
 class FormPage extends StatefulWidget {
   @override
@@ -6,7 +7,7 @@ class FormPage extends StatefulWidget {
 }
 
 class LoginData {
-  String school = '';
+  String location = '';
   String firstName = '';
   String lastName = '';
   String gender = '';
@@ -59,13 +60,23 @@ class FormPageState extends State<FormPage> {
                     onSaved: (String value) {
                       this.userData.lastName = value;
                     }),
+                new TextFormField(
+                    obscureText: false, // Use secure text for passwords.
+                    decoration: new InputDecoration(
+                        hintText: 'Location', labelText: 'Location'),
+                    onSaved: (String value) {
+                      this.userData.location = value;
+                    }),
                 DropdownButton<String>(
                   items: genders.map((String dropDownStringItem) {
                     return new DropdownMenuItem<String>(
                         value: dropDownStringItem,
                         child: Text(dropDownStringItem));
                   }).toList(),
-                  onChanged: ((value) => userData.gender = value),
+                  onChanged: ((String value) {
+                    userData.gender = value;
+                    setState(() {});
+                  }),
                   value: userData.gender != '' ? userData.gender : null,
                   hint: Text("Please choose you gender"),
                 ),
@@ -73,10 +84,15 @@ class FormPageState extends State<FormPage> {
                   width: screenSize.width,
                   child: new RaisedButton(
                     child: new Text(
-                      'Information',
+                      'Sign Up',
                       style: new TextStyle(color: Colors.white),
                     ),
-                    onPressed: this.submit,
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (_) => MatchPage()),
+                      );
+                    },
                     color: Colors.blue,
                   ),
                   margin: new EdgeInsets.only(top: 20.0),
