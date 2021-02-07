@@ -29,6 +29,7 @@ class MatchPageState extends State<MatchPage> {
             ),
           ],
         ),
+        backgroundColor: AppColors.lightBrown,
       ),
       body: Scaffold(
         body: Align(

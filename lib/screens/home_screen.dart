@@ -22,6 +22,7 @@ class _HomePageState extends State<HomePage> {
               child: Text('Matches'),
             ),
           ],
+          backgroundColor: AppColors.lightBrown,
         ),
       ),
       body: Center(

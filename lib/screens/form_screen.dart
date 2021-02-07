@@ -126,6 +126,7 @@ class FormPageState extends State<FormPage> {
     return new Scaffold(
       appBar: new AppBar(
         title: new Text('Personal Information'),
+        backgroundColor: AppColors.lightBrown,
       ),
       body: new Container(
           padding: new EdgeInsets.all(20.0),
